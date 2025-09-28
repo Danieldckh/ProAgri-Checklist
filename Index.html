@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>ProAgri Media — New Client Preference List</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root{
+      --brand-red:#ef3340; --brand-navy:#0f2c4d; --brand-blue:#1d4c7a;
+      --ink:#1b1f24; --muted:#5a6773; --paper:#ffffff; --panel:#f6f8fa;
+      --line:#e5e9ef; --radius:12px;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--paper);color:var(--ink);
+      font:15px/1.5 system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
+    .wrap{max-width:1100px;margin:0 auto;padding:0 20px 68px}
+    .banner{width:100%;display:block;border-bottom:3px solid var(--brand-red)}
+
+    .contact-bar{display:flex;flex-wrap:wrap;gap:10px 24px;align-items:center;
+      padding:12px 4px;border-bottom:1px solid var(--line);color:var(--muted);font-weight:600}
+    .contact-bar .sep{height:14px;width:1px;background:var(--line)}
+
+    .heading-block{padding:18px 0 12px;border-bottom:1px solid var(--line);margin-bottom:18px}
+    .eyebrow{font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;color:var(--brand-blue);font-weight:800}
+    h1.title{margin:.35rem 0 0;line-height:1.15;font-weight:900;letter-spacing:.02em}
+    h1.title .hot{color:var(--brand-red)} h1.title .cool{color:var(--brand-navy)}
+    .desc{margin:.35rem 0 0;color:var(--muted);font-weight:600}
+
+    .section{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+      padding:18px;margin:18px 0;box-shadow:0 1px 0 #f0f3f7 inset}
+    .section-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;position:relative}
+    .section h2{margin:0;font-size:1.05rem;font-weight:900;letter-spacing:.02em;color:var(--brand-navy);text-transform:uppercase;padding-left:12px}
+    .section h2::before{content:"";position:absolute;left:0;top:2px;bottom:2px;width:4px;background:linear-gradient(180deg,var(--brand-red),#ff6a73);border-radius:3px}
+
+    .grid{display:grid;gap:12px}
+    .g-2{grid-template-columns:repeat(2,minmax(0,1fr))} .g-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+    .g-4{grid-template-columns:repeat(4,minmax(0,1fr))} .full{grid-column:1/-1}
+
+    .line{display:flex;align-items:center;gap:10px}
+    .line label{font-weight:800;white-space:nowrap;color:var(--brand-navy);letter-spacing:.01em}
+    .u{appearance:none;border:none;border-bottom:2px solid #cfd6df;background:transparent;
+      padding:6px 2px 4px;margin-left:6px;flex:1;min-width:80px;color:var(--ink);font-weight:600}
+    .u:focus{outline:none;border-bottom-color:var(--brand-red);box-shadow:0 2px 0 0 var(--brand-red)}
+    .stack .line{margin:2px 0}
+    .top-hd{display:block;font-weight:900;color:var(--brand-navy);margin-bottom:6px}
+    .box{width:100%;min-height:140px;background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 12px;color:var(--ink);resize:vertical}
+    .box:focus{outline:2px solid var(--brand-red);outline-offset:0}
+
+    input[type="checkbox"]{accent-color:var(--brand-red)}
+    .tickline{display:flex;gap:16px;align-items:center;flex-wrap:wrap;padding:6px 0;border-bottom:1px solid var(--line)}
+    .tick{display:inline-flex;align-items:center;gap:6px;font-weight:700;color:var(--ink)}
+    .muted{color:var(--muted);font-weight:700}
+
+    .country-box{background:#f1f3f6;border:1px solid var(--line);border-radius:10px;padding:12px}
+    .country-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+
+    .actions{position:sticky;bottom:0;display:flex;justify-content:flex-end;gap:10px;
+      margin-top:18px;background:linear-gradient(180deg,transparent,rgba(255,255,255,.9) 30%, #fff 100%);
+      padding:14px 0}
+    .btn{border:1px solid var(--line);background:#fff;color:var(--brand-navy);
+      padding:12px 16px;border-radius:10px;cursor:pointer;font-weight:800;text-decoration:none;display:inline-block}
+    .primary{background:linear-gradient(180deg,var(--brand-red),#da1c2a);border-color:transparent;color:#fff}
+
+    @media print{
+      body{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+      .actions,.contact-bar{display:none !important}
+      .section{break-inside:avoid}
+      .u{border-bottom:2px solid #000 !important;color:#000 !important}
+      textarea.box{border-color:#000 !important}
+      input[type="checkbox"]{accent-color:#000}
+    }
+    @media(max-width:900px){
+      .g-2,.g-3,.g-4{grid-template-columns:1fr}
+      .country-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap" id="page">
+    <div class="contact-bar">
+      <span><b>Email:</b> your@email.com</span><span class="sep"></span>
+      <span><b>Phone:</b> +27 00 000 0000</span><span class="sep"></span>
+      <span><b>Address:</b> 1221 Wekker Rd, Moreleta Park, Pretoria, 0044</span>
+    </div>
+
+    <div class="heading-block">
+      <div class="eyebrow">@ ProAgri Media</div>
+      <h1 class="title"><span class="hot">New Client</span> <span class="cool">PREFERENCE LIST</span></h1>
+      <div class="desc">The sales representative must complete the form for every new client.</div>
+    </div>
+
+    <!-- IMPORTANT: method+action and names on all fields -->
+    <form id="prefForm" method="post" action="https://proagri.app.n8n.cloud/webhook/885bb7c6-1236-4b52-808f-ca566e6e140c" enctype="application/x-www-form-urlencoded" autocomplete="on">
+      <input type="text" name="hp_website" tabindex="-1" style="position:absolute;left:-9999px" aria-hidden="true">
+
+      <!-- CLIENT INFORMATION -->
+      <section class="section">
+        <div class="section-header"><h2>CLIENT INFORMATION</h2></div>
+        <div class="grid g-2 stack">
+          <div class="line"><label for="company">Company Name:</label><input id="company" name="company" class="u" type="text"></div>
+          <div class="line"><label for="addr">Address:</label><input id="addr" name="addr" class="u" type="text"></div>
+          <div class="line"><label for="contact">Contact Person:</label><input id="contact" name="contact" class="u" type="text"></div>
+          <div class="line"><label for="title">Designation / Title:</label><input id="title" name="title" class="u" type="text"></div>
+          <div class="line"><label for="phone">Contact Number:</label><input id="phone" name="phone" class="u" type="tel"></div>
+          <div class="line"><label for="email">Email Address:</label><input id="email" name="email" class="u" type="email"></div>
+          <div class="line full"><label for="industry">Industry / Expertise:</label><input id="industry" name="industry" class="u" type="text"></div>
+          <div class="line"><label for="branches_local">Branches Local:</label><input id="branches_local" name="branches_local" class="u" type="text"></div>
+          <div class="line"><label for="employees">Total Employees:</label><input id="employees" name="employees" class="u" type="text"></div>
+          <div class="line full"><label for="branches_intl">Branches International:</label><input id="branches_intl" name="branches_intl" class="u" type="text"></div>
+          <div class="line full"><label for="special">Special Requests:</label><input id="special" name="special" class="u" type="text"></div>
+          <div class="full"><label class="top-hd" for="proj">Project Description</label><textarea id="proj" name="proj" class="box"></textarea></div>
+          <div class="line"><label for="start">Campaign Month Start:</label><input id="start" name="start" class="u" type="text"></div>
+          <div class="line"><label for="end">Campaign Month End:</label><input id="end" name="end" class="u" type="text" placeholder="YYYY-MM"></div>
+        </div>
+      </section>
+
+      <!-- SOCIAL MEDIA MANAGEMENT -->
+      <section class="section">
+        <div class="section-header">
+          <h2>SOCIAL MEDIA MANAGEMENT</h2>
+          <div class="grid g-3" style="min-width:420px">
+            <div class="line"><label for="resp_a4a">Agri4All</label><input id="resp_a4a" name="resp_a4a" class="u" type="text"></div>
+            <div class="line"><label for="resp_edit">Editorial</label><input id="resp_edit" name="resp_edit" class="u" type="text"></div>
+            <div class="line"><label for="resp_des">Design</label><input id="resp_des" name="resp_des" class="u" type="text"></div>
+          </div>
+        </div>
+        <div class="grid g-2">
+          <div class="tickline"><span class="tick"><input type="checkbox" id="fb" name="platforms[]" value="facebook"><label for="fb">Facebook</label></span><span class="muted">Link</span><input class="u" name="facebook_link" type="text"></div>
+          <div class="tickline"><span class="tick"><input type="checkbox" id="ig" name="platforms[]" value="instagram"><label for="ig">Instagram</label></span><span class="muted">Link</span><input class="u" name="instagram_link" type="text"></div>
+          <div class="tickline"><span class="tick"><input type="checkbox" id="li" name="platforms[]" value="linkedin"><label for="li">LinkedIn</label></span><span class="muted">Link</span><input class="u" name="linkedin_link" type="text"></div>
+          <div class="tickline"><span class="tick"><input type="checkbox" id="yt" name="platforms[]" value="youtube"><label for="yt">YouTube</label></span><span class="muted">Link</span><input class="u" name="youtube_link" type="text"></div>
+          <div class="tickline"><span class="tick"><input type="checkbox" id="tt" name="platforms[]" value="tiktok"><label for="tt">TikTok</label></span><span class="muted">Link</span><input class="u" name="tiktok_link" type="text"></div>
+          <div class="tickline"><span class="tick"><input type="checkbox" id="x"  name="platforms[]" value="x"><label for="x">Twitter / X</label></span><span class="muted">Link</span><input class="u" name="x_link" type="text"></div>
+          <div class="tickline full"><span class="tick"><input type="checkbox" id="design_srv" name="design_services" value="yes"><label for="design_srv">Design Services</label></span></div>
+        </div>
+      </section>
+
+      <!-- AGRI4ALL -->
+      <section class="section">
+        <div class="section-header">
+          <h2>AGRI4ALL</h2>
+          <div class="grid g-4" style="min-width:540px">
+            <div class="line"><label for="a4a_ppl">Agri4All</label><input id="a4a_ppl" name="a4a_ppl" class="u" type="text"></div>
+            <div class="line"><label for="a4a_edit">Editorial</label><input id="a4a_edit" name="a4a_edit" class="u" type="text"></div>
+            <div class="line"><label for="a4a_des">Design</label><input id="a4a_des" name="a4a_des" class="u" type="text"></div>
+            <div class="line"><label for="a4a_vid">Video</label><input id="a4a_vid" name="a4a_vid" class="u" type="text"></div>
+          </div>
+        </div>
+        <div class="tickline" style="gap:14px;flex-wrap:nowrap">
+          <b style="color:var(--brand-navy)">Listing</b><span>#</span><input class="u" style="max-width:220px" type="text" name="a4a_listing_no">
+          <span class="tick" style="margin-left:auto"><input type="checkbox" id="a4a_posts" name="a4a_posts" value="yes"><label for="a4a_posts">Posts</label></span>
+          <span class="tick"><input type="checkbox" id="a4a_stories" name="a4a_stories" value="yes"><label for="a4a_stories">Stories</label></span>
+        </div>
+        <div class="stack">
+          <div class="tickline"><b>Facebook</b>
+            <span class="tick"><input type="checkbox" name="fb_posts2" value="yes">Posts</span>
+            <span class="tick"><input type="checkbox" name="fb_stories2" value="yes">Stories</span>
+            <span class="tick"><input type="checkbox" name="fb_curated2" value="yes">Curated</span>
+          </div>
+          <div class="tickline"><b>Instagram</b>
+            <span class="tick"><input type="checkbox" name="ig_posts2" value="yes">Posts</span>
+            <span class="tick"><input type="checkbox" name="ig_stories2" value="yes">Stories</span>
+          </div>
+          <div class="tickline"><b>TikTok</b>
+            <span class="tick"><input type="checkbox" name="tt_shorts2" value="yes">Shorts</span>
+            <span class="tick"><input type="checkbox" name="tt_curated2" value="yes">Curated</span>
+          </div>
+          <div class="tickline"><b>YouTube</b>
+            <span class="tick"><input type="checkbox" name="yt_shorts2" value="yes">Shorts</span>
+          </div>
+          <div class="tickline"><b>LinkedIn</b>
+            <span class="tick"><input type="checkbox" name="li_article2" value="yes">Article</span>
+            <span class="tick"><input type="checkbox" name="li_company2" value="yes">Article & Company Campaign</span>
+          </div>
+          <div class="tickline"><span class="tick"><input type="checkbox" id="a4a_design_services" name="a4a_design_services" value="yes"><label for="a4a_design_services"><b>Design Services</b></label></span></div>
+        </div>
+      </section>
+
+      <!-- PROAGRIMEDIA -->
+      <section class="section">
+        <div class="section-header">
+          <h2>PROAGRIMEDIA</h2>
+          <div class="grid g-2" style="min-width:380px">
+            <div class="line"><label for="pam_admin">Admin</label><input id="pam_admin" name="pam_admin" class="u" type="text"></div>
+            <div class="line"><label for="pam_edit">Editorial</label><input id="pam_edit" name="pam_edit" class="u" type="text"></div>
+          </div>
+        </div>
+        <div class="stack">
+          <div class="tickline"><span class="tick"><input type="checkbox" name="pam_art" value="yes">Online article</span></div>
+          <div class="tickline"><span class="tick"><input type="checkbox" name="pam_artc" value="yes">Online article curated</span></div>
+        </div>
+      </section>
+
+      <!-- PROAGRI -->
+      <section class="section">
+        <div class="section-header">
+          <h2>PROAGRI</h2>
+          <div class="grid g-2" style="min-width:380px">
+            <div class="line"><label for="pa_admin">Admin</label><input id="pa_admin" name="pa_admin" class="u" type="text"></div>
+            <div class="line"><label for="pa_edit">Editorial</label><input id="pa_edit" name="pa_edit" class="u" type="text"></div>
+          </div>
+        </div>
+        <div class="stack">
+          <div class="tickline"><span class="tick"><input type="checkbox" name="pa_art" value="yes">Online article</span></div>
+          <div class="tickline"><span class="tick"><input type="checkbox" name="pa_artc" value="yes">Online article curated</span></div>
+        </div>
+      </section>
+
+      <!-- DIGITAL -->
+      <section class="section">
+        <div class="section-header"><h2>DIGITAL</h2></div>
+        <div class="stack">
+          <div class="tickline"><span class="tick"><input type="checkbox" name="web_articles" value="yes">Online Website Articles</span></div>
+          <div class="tickline"><span class="tick"><input type="checkbox" name="banner_impressions" value="yes">Online Banner Impressions</span></div>
+          <div class="tickline"><span class="tick"><input type="checkbox" name="enews" value="yes">E-Newsletters</span></div>
+        </div>
+      </section>
+
+      <!-- VIDEO -->
+      <section class="section">
+        <div class="section-header">
+          <h2>VIDEO</h2>
+          <div class="grid g-2" style="min-width:520px">
+            <div class="line"><label for="video_a4a">Agri4All</label><input id="video_a4a" name="video_a4a" class="u" type="text"></div>
+            <div class="line"><label for="video_people">Video</label><input id="video_people" name="video_people" class="u" type="text"></div>
+          </div>
+        </div>
+        <div class="stack">
+          <div class="tickline"><span class="tick"><input type="checkbox" name="vid_testimonial" value="yes">Testimonial Videos</span></div>
+          <div class="tickline"><span class="tick"><input type="checkbox" name="vid_product" value="yes">Product Specific Videos</span></div>
+          <div class="tickline"><span class="tick"><input type="checkbox" name="vid_event" value="yes">Event Cover Videos</span></div>
+          <div class="tickline"><span class="tick"><input type="checkbox" name="vid_short" value="yes">Short Social Media Videos</span></div>
+          <div class="tickline"><span class="tick"><input type="checkbox" name="vid_banner" value="yes">Website Banner</span></div>
+        </div>
+      </section>
+
+      <!-- DURATION -->
+      <section class="section">
+        <div class="section-header"><h2>PLEASE SELECT THE DURATION YOU WOULD LIKE TO FOCUS ON FOR YOUR 2025 MARKETING CAMPAIGN.</h2></div>
+        <div class="grid g-3">
+          <label class="tick"><input type="checkbox" name="duration[]" value="3m">3 Months</label>
+          <label class="tick"><input type="checkbox" name="duration[]" value="6m">6 Months</label>
+          <label class="tick"><input type="checkbox" name="duration[]" value="12m">12 Months</label>
+        </div>
+      </section>
+
+      <!-- COUNTRIES -->
+      <section class="section">
+        <div class="section-header"><h2>PLEASE SELECT THE COUNTRIES YOU WOULD LIKE TO FOCUS ON FOR YOUR 2025 MARKETING CAMPAIGN.</h2></div>
+        <div class="country-box">
+          <div class="country-grid">
+            <!-- use array name + values -->
+            <label class="tick"><input type="checkbox" name="countries[]" value="South Africa">South Africa</label>
+            <label class="tick"><input type="checkbox" name="countries[]" value="Zambia">Zambia</label>
+            <label class="tick"><input type="checkbox" name="countries[]" value="Botswana">Botswana</label>
+            <label class="tick"><input type="checkbox" name="countries[]" value="USA">USA</label>
+            <label class="tick"><input type="checkbox" name="countries[]" value="Namibia">Namibia</label>
+            <label class="tick"><input type="checkbox" name="countries[]" value="Zimbabwe">Zimbabwe</label>
+            <label class="tick"><input type="checkbox" name="countries[]" value="Algeria">Algeria</label>
+            <label class="tick"><input type="checkbox" name="countries[]" value="Uganda">Uganda</label>
+            <label class="tick"><input type="checkbox" name="countries[]" value="Angola">Angola</label>
+            <label class="tick"><input type="checkbox" name="countries[]" value="Bahrain">Bahrain</label>
+            <label class="tick"><input type="checkbox" name="countries[]" value="Benin">Benin</label>
+            <label class="tick"><input type="checkbox" name="countries[]" value="UAE">UAE</label>
+            <label class="tick"><input type="checkbox" name="countries[]" value="Brazil">Brazil</label>
+            <label class="tick"><input type="checkbox" name="countries[]" value="Burkina Faso">Burkina Faso</label>
+            <label class="tick"><input type="checkbox" name="countries[]" value="Cameroon">Cameroon</label>
+            <label class="tick"><input type="checkbox" name="countries[]" value="Tanzania">Tanzania</label>
+            <label class="tick"><input type="checkbox" name="countries[]" value="Canada">Canada</label>
+            <label class="tick"><input type="checkbox" name="countries[]" value="CAR">CAR</label>
+            <label class="tick"><input type="checkbox" name="countries[]" value="Cyprus">Cyprus</label>
+            <label class="tick"><input type="checkbox" name="countries[]" value="Togo">Togo</label>
+            <label class="tick"><input type="checkbox" name="countries[]" value="Cote d'Ivoire">Cote d'Ivoire</label>
+            <label class="tick"><input type="checkbox" name="countries[]" value="Egypt">Egypt</label>
+            <label class="tick"><input type="checkbox" name="countries[]" value="Ethiopia">Ethiopia</label>
+            <label class="tick"><input type="checkbox" name="countries[]" value="Tunisia">Tunisia</label>
+            <label class="tick"><input type="checkbox" name="countries[]" value="Europe">Europe</label>
+            <label class="tick"><input type="checkbox" name="countries[]" value="France">France</label>
+            <label class="tick"><input type="checkbox" name="countries[]" value="Ghana">Ghana</label>
+            <label class="tick"><input type="checkbox" name="countries[]" value="Senegal">Senegal</label>
+            <label class="tick"><input type="checkbox" name="countries[]" value="Guinea">Guinea</label>
+            <label class="tick"><input type="checkbox" name="countries[]" value="Jordan">Jordan</label>
+            <label class="tick"><input type="checkbox" name="countries[]" value="Kenya">Kenya</label>
+            <label class="tick"><input type="checkbox" name="countries[]" value="Spain">Spain</label>
+            <label class="tick"><input type="checkbox" name="countries[]" value="Kuwait">Kuwait</label>
+            <label class="tick"><input type="checkbox" name="countries[]" value="Lesotho">Lesotho</label>
+            <label class="tick"><input type="checkbox" name="countries[]" value="Liberia">Liberia</label>
+            <label class="tick"><input type="checkbox" name="countries[]" value="Sudan">Sudan</label>
+            <label class="tick"><input type="checkbox" name="countries[]" value="Libya">Libya</label>
+            <label class="tick"><input type="checkbox" name="countries[]" value="Malawi">Malawi</label>
+            <label class="tick"><input type="checkbox" name="countries[]" value="Mali">Mali</label>
+            <label class="tick"><input type="checkbox" name="countries[]" value="Republic of Congo">Republic of Congo</label>
+            <label class="tick"><input type="checkbox" name="countries[]" value="Mauritius">Mauritius</label>
+            <label class="tick"><input type="checkbox" name="countries[]" value="Mexico">Mexico</label>
+            <label class="tick"><input type="checkbox" name="countries[]" value="Morocco">Morocco</label>
+            <label class="tick"><input type="checkbox" name="countries[]" value="Rwanda">Rwanda</label>
+            <label class="tick"><input type="checkbox" name="countries[]" value="Mozambique">Mozambique</label>
+            <label class="tick"><input type="checkbox" name="countries[]" value="Nigeria">Nigeria</label>
+            <label class="tick"><input type="checkbox" name="countries[]" value="Qatar">Qatar</label>
+            <label class="tick"><input type="checkbox" name="countries[]" value="Saudi Arabia">Saudi Arabia</label>
+          </div>
+        </div>
+      </section>
+
+      <!-- WEBSITE -->
+      <section class="section">
+        <div class="section-header"><h2>WEBSITE</h2></div>
+        <div class="grid g-2" style="margin-bottom:6px">
+          <div class="line"><label for="w_design">Design</label><input id="w_design" name="w_design" class="u" type="text"></div>
+          <div class="line"><label for="w_edit">Editorial</label><input id="w_edit" name="w_edit" class="u" type="text"></div>
+        </div>
+        <div class="tickline" style="gap:20px">
+          <span class="tick"><input type="checkbox" name="website_services[]" value="design">Design</span>
+          <span class="tick"><input type="checkbox" name="website_services[]" value="development">Development</span>
+          <span class="tick"><input type="checkbox" name="website_services[]" value="rewrite">Rewrite</span>
+        </div>
+      </section>
+
+      <!-- SIGN-OFF -->
+      <section class="section">
+        <div class="section-header"><h2>SIGN-OFF</h2></div>
+        <div class="grid g-2">
+          <div class="line"><label for="date">DATE:</label><input id="date" name="date" class="u" type="date"></div>
+          <div class="line"><label for="sales">SALES REPRESENTATIVE</label><input id="sales" name="sales" class="u" type="text"></div>
+        </div>
+      </section>
+
+      <div class="actions">
+        <button type="button" class="btn" onclick="window.print()">Print / Save as PDF</button>
+        <button type="submit" class="btn primary">Submit</button>
+      </div>
+
+      <!-- metadata -->
+      <input type="hidden" name="source" value="webhook-pref-list">
+    </form>
+  </div>
+</body>
+</html>
